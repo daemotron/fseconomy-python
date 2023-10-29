@@ -1,5 +1,6 @@
 from typing import Optional
 from ..util.hex import is_hex
+from ..exceptions import FseAuthKeyError, FseDataKeyError
 
 
 #: FSEconomy Access Key
@@ -18,6 +19,7 @@ def validate_key(key: Optional[str]) -> bool:
     """validates a new style FSEconomy API key
 
     :param key: string to validate
+    :type key: str
     :return: True if string is a valid API key, otherwise False
     """
     try:
@@ -29,16 +31,36 @@ def validate_key(key: Optional[str]) -> bool:
 def get_data_keys() -> dict[str, str]:
     """get keys to query an FSEconomy data feed
 
-    If available, the service key is preferred over
-    the (personal) user key.
+    This function uses a set of rules to deliver a valid result even if not all
+    keys are set:
+
+    * If available, the service key is preferred over the (personal) user key.
+    * If no access key has been defined, the user key is used as default.
+
+    The function must be able to establish an authentication key (user or
+    service key), and a data access key (read access or user key). In case of
+    a failure, it raises either an :exception:`~fseconomy.exceptions.FseDataKeyError`
+    or an :exception:`~fseconomy.exceptions.FseAuthKeyError`.
 
     :return: dictionary with keys
+    :rtype: dict[str, str]
     """
     keys = {}
+
+    # configure the read access key or raise an exception
     if ACCESS_KEY:
-        keys['readaccesskey']: ACCESS_KEY
+        keys['readaccesskey'] = ACCESS_KEY
+    elif USER_KEY:
+        keys['readaccesskey'] = ACCESS_KEY
+    else:
+        raise FseDataKeyError
+
+    # configure the auth key or raise an exception
     if SERVICE_KEY:
         keys['servicekey'] = SERVICE_KEY
     elif USER_KEY:
         keys['userkey'] = USER_KEY
+    else:
+        raise FseAuthKeyError
+
     return keys
