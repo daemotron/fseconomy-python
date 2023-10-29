@@ -39,8 +39,11 @@ def get_data_keys() -> dict[str, str]:
 
     The function must be able to establish an authentication key (user or
     service key), and a data access key (read access or user key). In case of
-    a failure, it raises either an :exception:`~fseconomy.exceptions.FseDataKeyError`
-    or an :exception:`~fseconomy.exceptions.FseAuthKeyError`.
+    a failure, it raises either an :exc:`~fseconomy.exceptions.FseDataKeyError`
+    or an :exc:`~fseconomy.exceptions.FseAuthKeyError`.
+
+    :raises FseDataKeyError: if no valid data key can be established
+    :raises FseAuthKeyError: if no valid auth key can be established
 
     :return: dictionary with keys
     :rtype: dict[str, str]
