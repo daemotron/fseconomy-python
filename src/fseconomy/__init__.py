@@ -1,7 +1,7 @@
 from typing import Optional
 
-from core import keys
-from util.hex import is_hex
+from .core import keys
+from .util.hex import is_hex
 
 
 def set_service_key(key: Optional[str] = None):
