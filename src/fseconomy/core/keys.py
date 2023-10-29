@@ -24,3 +24,21 @@ def validate_key(key: Optional[str]) -> bool:
         return key and (len(key) == 16) and is_hex(key)
     except (ValueError, TypeError):
         return False
+
+
+def get_data_keys() -> dict[str, str]:
+    """get keys to query an FSEconomy data feed
+
+    If available, the service key is preferred over
+    the (personal) user key.
+
+    :return: dictionary with keys
+    """
+    keys = {}
+    if ACCESS_KEY:
+        keys['readaccesskey']: ACCESS_KEY
+    if SERVICE_KEY:
+        keys['servicekey'] = SERVICE_KEY
+    elif USER_KEY:
+        keys['userkey'] = USER_KEY
+    return keys
