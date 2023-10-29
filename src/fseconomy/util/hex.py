@@ -1,6 +1,5 @@
 def is_hex(value: str) -> bool:
-    """
-    validate if a string represents a number in hexadecimal format
+    """validate if a string represents a number in hexadecimal format
 
     :param value: string to validate
     :return: True if string represents a hexadecimal number, otherwise False
