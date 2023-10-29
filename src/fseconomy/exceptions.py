@@ -44,3 +44,27 @@ class FseAuthKeyError(FseBaseException):
 class FseDataKeyError(FseBaseException):
     """Could not find a valid data access key (user or access key)"""
     pass
+
+
+class FseDataFeedInvalidError(FseBaseException):
+    """Invalid data feed"""
+    pass
+
+
+class FseDataFeedParamError(FseBaseException):
+    """One or several required parameters are missing to query the requested data feed"""
+    pass
+
+
+class FseDataParseError(FseBaseException):
+    """Unable to parse XML data received from the FSEconomy server"""
+
+
+class FseServerMaintenanceError(FseBaseException):
+    """The FSEconomy server is currently down for maintenance"""
+    pass
+
+
+class FseServerRequestError(FseBaseException):
+    """Request to the FSEconomy server failed"""
+    pass
