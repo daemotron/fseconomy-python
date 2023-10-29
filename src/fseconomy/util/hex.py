@@ -1,3 +1,11 @@
+"""
+fseconomy.util.hex
+~~~~~~~~~~~~~~~~~~
+
+This module contains a set of hex helper functions.
+"""
+
+
 def is_hex(value: str) -> bool:
     """validate if a string represents a number in hexadecimal format
 
