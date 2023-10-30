@@ -23,7 +23,7 @@ def validate_key(key: Optional[str]) -> bool:
     :return: True if string is a valid API key, otherwise False
     """
     try:
-        return key and (len(key) == 16) and is_hex(key)
+        return (key is not None) and (len(key) == 16) and is_hex(key)
     except (ValueError, TypeError):
         return False
 
@@ -51,17 +51,17 @@ def get_data_keys() -> dict[str, str]:
     keys = {}
 
     # configure the read access key or raise an exception
-    if ACCESS_KEY:
+    if validate_key(ACCESS_KEY):
         keys['readaccesskey'] = ACCESS_KEY
-    elif USER_KEY:
-        keys['readaccesskey'] = ACCESS_KEY
+    elif validate_key(USER_KEY):
+        keys['readaccesskey'] = USER_KEY
     else:
         raise FseDataKeyError
 
     # configure the auth key or raise an exception
-    if SERVICE_KEY:
+    if validate_key(SERVICE_KEY):
         keys['servicekey'] = SERVICE_KEY
-    elif USER_KEY:
+    elif validate_key(USER_KEY):
         keys['userkey'] = USER_KEY
     else:
         raise FseAuthKeyError
