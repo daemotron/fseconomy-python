@@ -5,6 +5,8 @@ fseconomy.exceptions
 This module contains the set of FSEconomy's exceptions.
 """
 
+from typing import Optional
+
 
 class FseBaseException(Exception):
     """Common base class for all fseconomy errors
@@ -13,15 +15,17 @@ class FseBaseException(Exception):
     :type message: str
     """
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, message: Optional[str] = None):
+        super().__init__()
+        if message is not None:
+            self.message = str(message)
         try:
-            message = self.__getattribute__('message')
-            if not message:
+            msg = self.__getattribute__('message')
+            if not msg:
                 raise AttributeError
         except AttributeError:
             self.message = self.__doc__
-        if not self.message:
+        if (not self.message) or (self.message is None):
             self.message = self.__doc__
 
     def __str__(self):
