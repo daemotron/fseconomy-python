@@ -12,6 +12,15 @@ Core
    for the sake of completeness, and to support developers contributing
    to the :mod:`fseconomy` package.
 
+API
+---
+
+.. module:: fseconomy.core.api
+
+.. autodata:: API_VERSIONS
+.. autodata:: MAINTENANCE
+.. autodata:: DATA_FEEDS
+
 Keys
 ----
 
