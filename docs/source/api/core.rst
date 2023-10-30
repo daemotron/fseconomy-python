@@ -33,3 +33,13 @@ Keys
 .. autofunction:: validate_key
 
 .. autofunction:: get_data_keys
+
+Data Decoders
+-------------
+
+.. module:: fseconomy.core.data
+
+Collection of data decoding functions to convert the raw XML data received
+from the FSEconomy server into standard Python data types
+
+.. autofunction:: fseconomy.core.data.aircraft.decode
