@@ -34,6 +34,15 @@ Keys
 
 .. autofunction:: get_data_keys
 
+Server Response
+---------------
+
+.. module:: fseconomy.core.response
+
+.. autoclass:: Response
+   :members:
+   :undoc-members:
+
 Data Decoders
 -------------
 
