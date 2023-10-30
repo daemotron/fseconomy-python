@@ -21,6 +21,13 @@ API
 .. autodata:: MAINTENANCE
 .. autodata:: DATA_FEEDS
 
+Fetch Data Feed
+---------------
+
+.. module:: fseconomy.core.fetch
+
+.. autofunction:: fetch
+
 Keys
 ----
 
