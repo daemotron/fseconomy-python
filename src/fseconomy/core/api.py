@@ -21,14 +21,38 @@ DATA_FEEDS = {
         'search': 'id',
         'params': ['fromid']
     },
-    'aircraft by key': {
-        'query': 'aircraft',
-        'search': 'key',
-        'decode': aircraft.decode
-    },
     'aircraft for sale': {
         'query': 'aircraft',
         'search': 'forsale',
+        'decode': aircraft.decode
+    },
+    'aircraft by makemodel': {
+        'query': 'aircraft',
+        'search': 'makemodel',
+        'params': ['makemodel'],
+        'decode': aircraft.decode
+    },
+    'aircraft by ownername': {
+        'query': 'aircraft',
+        'search': 'ownername',
+        'params': ['ownername'],
+        'decode': aircraft.decode
+    },
+    'aircraft by registration': {
+        'query': 'aircraft',
+        'search': 'registration',
+        'params': ['aircraftreg'],
+        'decode': aircraft.decode
+    },
+    'aircraft by id': {
+        'query': 'aircraft',
+        'search': 'serialnumber',
+        'params': ['serialnumber'],
+        'decode': aircraft.decode
+    },
+    'aircraft by key': {
+        'query': 'aircraft',
+        'search': 'key',
         'decode': aircraft.decode
     }
 }

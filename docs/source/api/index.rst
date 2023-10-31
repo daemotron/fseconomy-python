@@ -11,6 +11,7 @@ important right here and provide links to the canonical documentation.
    :caption: External API
 
    exceptions
+   data
 
 
 .. toctree::
