@@ -17,16 +17,10 @@ class FseBaseException(Exception):
 
     def __init__(self, message: Optional[str] = None):
         super().__init__()
-        if message is not None:
+        if (message is None) or (message == ""):
+            self.message = self.__doc__
+        else:
             self.message = str(message)
-        try:
-            msg = self.__getattribute__('message')
-            if not msg:
-                raise AttributeError
-        except AttributeError:
-            self.message = self.__doc__
-        if (not self.message) or (self.message is None):
-            self.message = self.__doc__
 
     def __str__(self):
         return self.message
