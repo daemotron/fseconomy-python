@@ -58,5 +58,14 @@ Data Decoders
 Collection of data decoding functions to convert the raw XML data received
 from the FSEconomy server into standard Python data types
 
+Aircraft Configuration
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.config.decode
+.. autofunction:: fseconomy.core.data.config.__decode_config
+
+Aircraft
+~~~~~~~~
+
 .. autofunction:: fseconomy.core.data.aircraft.decode
 .. autofunction:: fseconomy.core.data.aircraft.__decode_aircraft

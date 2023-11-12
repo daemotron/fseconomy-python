@@ -8,6 +8,7 @@ Data Feeds
 Aircraft Data Feeds
 -------------------
 
+.. autofunction:: aircraft_configs
 .. autofunction:: aircraft_for_sale
 .. autofunction:: aircraft_by_makemodel
 .. autofunction:: aircraft_by_ownername

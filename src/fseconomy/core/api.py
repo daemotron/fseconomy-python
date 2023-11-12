@@ -1,4 +1,5 @@
 from .data import aircraft
+from .data import config
 
 
 #: FSEconomy APIs and versions
@@ -20,6 +21,11 @@ DATA_FEEDS = {
         'query': 'payments',
         'search': 'id',
         'params': ['fromid']
+    },
+    'aircraft configs': {
+        'query': 'aircraft',
+        'search': 'configs',
+        'decode': config.decode
     },
     'aircraft for sale': {
         'query': 'aircraft',
