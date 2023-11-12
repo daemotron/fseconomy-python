@@ -45,7 +45,7 @@ def __decode_aircraft(aircraft: dict[str, str]) -> dict[str, Union[bool, float, 
     }
 
 
-def decode(raw_data: str) -> Union[list[dict], dict]:
+def decode(raw_data: str) -> list[dict[str, Union[bool, int, float, str]]]:
     """Decode FSEconomy aircraft data
 
     :raises FseDataParseError: in case of malformed data provided
@@ -53,7 +53,7 @@ def decode(raw_data: str) -> Union[list[dict], dict]:
     :param raw_data: string with raw XML data representing an aircraft data feed
     :type raw_data: str
     :return: list of dictionaries representing each an aircraft from the data feed
-    :rtype: Union[list[dict], dict]
+    :rtype: list[dict]
     """
     data = xml.to_python(raw_data)
     try:
@@ -63,7 +63,7 @@ def decode(raw_data: str) -> Union[list[dict], dict]:
 
     try:
         if 'Aircraft' in keys:
-            return __decode_aircraft(data['AircraftItems']['Aircraft']['Aircraft'])
+            return [__decode_aircraft(data['AircraftItems']['Aircraft']['Aircraft'])]
         elif 'Aircrafts' in keys:
             result = []
             for aircraft in data['AircraftItems']['Aircrafts']:
