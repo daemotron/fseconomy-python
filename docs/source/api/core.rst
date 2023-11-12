@@ -75,3 +75,9 @@ Aircraft
 
 .. autofunction:: fseconomy.core.data.aircraft.decode
 .. autofunction:: fseconomy.core.data.aircraft.__decode_aircraft
+
+Assignments
+~~~~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.assignment.decode
+.. autofunction:: fseconomy.core.data.assignment.__decode_assignment

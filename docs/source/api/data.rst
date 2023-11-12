@@ -16,3 +16,8 @@ Aircraft Data Feeds
 .. autofunction:: aircraft_by_registration
 .. autofunction:: aircraft_by_id
 .. autofunction:: aircraft_by_key
+
+Assignment Data Feeds
+---------------------
+
+.. autofunction:: assignments_by_key

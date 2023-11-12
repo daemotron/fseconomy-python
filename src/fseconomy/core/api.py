@@ -1,5 +1,6 @@
 from .data import aircraft
 from .data import aliases
+from .data import assignment
 from .data import config
 
 
@@ -66,5 +67,10 @@ DATA_FEEDS = {
         'query': 'aircraft',
         'search': 'key',
         'decode': aircraft.decode
+    },
+    'assignments by key': {
+        'query': 'assignments',
+        'search': 'key',
+        'decode': assignment.decode
     }
 }
