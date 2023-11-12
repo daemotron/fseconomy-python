@@ -2,7 +2,7 @@
 fseconomy.core.data.aircraft
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module contains data handling functions for the aircraft data feed.
+This module contains data handling functions for the aircraft data feeds.
 """
 from typing import Union
 from ...exceptions import FseDataParseError
