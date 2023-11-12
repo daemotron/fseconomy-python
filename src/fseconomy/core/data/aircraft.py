@@ -56,6 +56,10 @@ def decode(raw_data: str) -> list[dict[str, Union[bool, int, float, str]]]:
     :rtype: list[dict]
     """
     data = xml.to_python(raw_data)
+
+    if isinstance(data, str) and data.strip() == '':
+        return []
+
     try:
         keys = list(data['AircraftItems'].keys())
     except (KeyError, IndexError) as e:
