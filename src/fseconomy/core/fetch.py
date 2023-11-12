@@ -53,14 +53,16 @@ def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
         response = requests.get(API_VERSIONS['data'], params=payload)
     except requests.exceptions.ConnectionError:
         raise FseServerRequestError
-    try:
-        response.raise_for_status()
-    except requests.exceptions.HTTPError:
-        raise FseServerRequestError
 
     # detect possible server maintenance
     if MAINTENANCE in response.text:
         raise FseServerMaintenanceError
+
+    # detect other server communication issues
+    try:
+        response.raise_for_status()
+    except requests.exceptions.HTTPError:
+        raise FseServerRequestError
 
     # process data
     return Response(
