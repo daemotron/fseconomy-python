@@ -64,6 +64,12 @@ Aircraft Configuration
 .. autofunction:: fseconomy.core.data.config.decode
 .. autofunction:: fseconomy.core.data.config.__decode_config
 
+Aircraft Aliases
+~~~~~~~~~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.aliases.decode
+.. autofunction:: fseconomy.core.data.aliases.__decode_aliases
+
 Aircraft
 ~~~~~~~~
 

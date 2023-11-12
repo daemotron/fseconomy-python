@@ -1,4 +1,5 @@
 from .data import aircraft
+from .data import aliases
 from .data import config
 
 
@@ -26,6 +27,11 @@ DATA_FEEDS = {
         'query': 'aircraft',
         'search': 'configs',
         'decode': config.decode
+    },
+    'aircraft aliases': {
+        'query': 'aircraft',
+        'search': 'aliases',
+        'decode': aliases.decode
     },
     'aircraft for sale': {
         'query': 'aircraft',
