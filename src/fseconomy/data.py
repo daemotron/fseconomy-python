@@ -8,6 +8,23 @@ from .core.response import Response
 from .core.fetch import fetch
 
 
+def aircraft_status_by_registration(registration: str) -> Response:
+    """Aircraft Status by Registration
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param registration: the aircraft registration as string
+    :type registration: str
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('aircraft status by registration', {'aircraftreg': registration})
+
+
 def aircraft_configs() -> Response:
     """Aircraft Configurations
 

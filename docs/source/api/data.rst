@@ -8,6 +8,7 @@ Data Feeds
 Aircraft Data Feeds
 -------------------
 
+.. autofunction:: aircraft_status_by_registration
 .. autofunction:: aircraft_configs
 .. autofunction:: aircraft_aliases
 .. autofunction:: aircraft_for_sale

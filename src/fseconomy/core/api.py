@@ -2,6 +2,7 @@ from .data import aircraft
 from .data import aliases
 from .data import assignment
 from .data import config
+from .data import status
 
 
 #: FSEconomy APIs and versions
@@ -19,10 +20,11 @@ MAINTENANCE = "Currently Closed for Maintenance"
 
 #: FSEconomy Data Feeds with their respective parameters and parser function
 DATA_FEEDS = {
-    'payments': {
-        'query': 'payments',
-        'search': 'id',
-        'params': ['fromid']
+    'aircraft status by registration': {
+        'query': 'aircraft',
+        'search': 'status',
+        'params': ['aircraftreg'],
+        'decode': status.decode
     },
     'aircraft configs': {
         'query': 'aircraft',
