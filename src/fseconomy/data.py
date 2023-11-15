@@ -181,3 +181,18 @@ def commodities_by_key() -> Response:
     :rtype: Response
     """
     return fetch('commodities by key')
+
+
+def facilities_by_key() -> Response:
+    """Facilities by Key
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('facilities by key')

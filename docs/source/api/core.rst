@@ -93,3 +93,9 @@ Commodities
 
 .. autofunction:: fseconomy.core.data.commodity.decode
 .. autofunction:: fseconomy.core.data.commodity.__decode_commodity
+
+Facilities
+~~~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.facility.decode
+.. autofunction:: fseconomy.core.data.facility.__decode_facility

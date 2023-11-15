@@ -27,3 +27,8 @@ Commodity Data Feeds
 --------------------
 
 .. autofunction:: commodities_by_key
+
+FBO Data Feeds
+--------------
+
+.. autofunction:: facilities_by_key

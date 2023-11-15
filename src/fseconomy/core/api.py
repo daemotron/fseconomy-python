@@ -3,6 +3,7 @@ from .data import aliases
 from .data import assignment
 from .data import commodity
 from .data import config
+from .data import facility
 from .data import status
 
 
@@ -80,5 +81,10 @@ DATA_FEEDS = {
         'query': 'commodities',
         'search': 'key',
         'decode': commodity.decode
+    },
+    'facilities by key': {
+        'query': 'Facilities',
+        'search': 'key',
+        'decode': facility.decode
     }
 }
