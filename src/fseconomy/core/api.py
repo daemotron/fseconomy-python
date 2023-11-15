@@ -4,6 +4,7 @@ from .data import assignment
 from .data import commodity
 from .data import config
 from .data import facility
+from .data import fbo
 from .data import status
 
 
@@ -86,5 +87,15 @@ DATA_FEEDS = {
         'query': 'Facilities',
         'search': 'key',
         'decode': facility.decode
+    },
+    'fbos by key': {
+        'query': 'fbos',
+        'search': 'key',
+        'decode': fbo.decode
+    },
+    'fbos for sale': {
+        'query': 'fbos',
+        'search': 'forsale',
+        'decode': fbo.decode
     }
 }

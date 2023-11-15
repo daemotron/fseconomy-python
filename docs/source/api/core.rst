@@ -99,3 +99,9 @@ Facilities
 
 .. autofunction:: fseconomy.core.data.facility.decode
 .. autofunction:: fseconomy.core.data.facility.__decode_facility
+
+FBOs
+~~~~
+
+.. autofunction:: fseconomy.core.data.fbo.decode
+.. autofunction:: fseconomy.core.data.fbo.__decode_fbo
