@@ -4,7 +4,7 @@ import requests
 
 from . import keys
 from .api import DATA_FEEDS, MAINTENANCE, API_VERSIONS
-from .response import Response
+from ..response import Response
 from ..exceptions import FseDataFeedInvalidError, FseServerMaintenanceError, FseServerRequestError, \
     FseDataFeedParamError
 
@@ -74,6 +74,6 @@ def fetch(feed: str, params: Optional[dict] = None, binary: bool = False) -> Uni
     return Response(
         status=response.status_code,
         data=DATA_FEEDS[feed]['decode'](raw),
-        raw=response.text,
+        raw=raw,
         ok=True
     )

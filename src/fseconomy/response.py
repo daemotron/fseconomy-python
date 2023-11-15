@@ -1,5 +1,11 @@
+"""
+fseconomy.response
+~~~~~~~~~~~~~~~~~~
+
+This module contains the FSEconomy Server Response class.
+"""
 import http
-from typing import Optional, Any
+from typing import Optional, Any, Union
 
 
 class Response:
@@ -21,13 +27,13 @@ class Response:
     """
 
     def __init__(self, status: int = 0, maintenance: bool = False, ok: bool = False, fail: bool = False,
-                 data: Optional[Any] = None, raw: str = '', message: str = ''):
+                 data: Optional[Any] = None, raw: Union[str, bytes] = '', message: str = ''):
         self._status: int = status
         self._maintenance: bool = maintenance
         self._ok: bool = ok
         self._fail: bool = fail
         self._data: Any = data
-        self._raw: str = raw
+        self._raw: Union[str, bytes] = raw
         self._message: str = message
 
     @property
@@ -83,13 +89,18 @@ class Response:
         self._data = value
 
     @property
-    def raw(self) -> str:
-        """Data received from the server as raw string"""
+    def raw(self) -> Union[str, bytes]:
+        """Data received from the server as raw string or bytes"""
         return self._raw
 
     @raw.setter
-    def raw(self, value: str):
+    def raw(self, value: Union[str, bytes]):
         self._raw = value
+
+    @property
+    def binary(self) -> bool:
+        """Raw data is binary"""
+        return isinstance(self._raw, bytes)
 
     @property
     def message(self) -> str:

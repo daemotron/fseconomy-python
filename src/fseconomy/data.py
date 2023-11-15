@@ -4,7 +4,7 @@ fseconomy.data
 
 This module contains public functions to access the FSEconomy Data Feeds.
 """
-from .core.response import Response
+from .response import Response
 from .core.fetch import fetch
 
 
