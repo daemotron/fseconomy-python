@@ -9,7 +9,7 @@ from ..exceptions import FseDataFeedInvalidError, FseServerMaintenanceError, Fse
     FseDataFeedParamError
 
 
-def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
+def fetch(feed: str, params: Optional[dict] = None, binary: bool = False) -> Union[None, Response]:
     """Fetch data feed and parse response
 
     The *feed* parameter needs to represent a data field as defined in the :mod:`~fseconomy.core.api` module.
@@ -26,6 +26,8 @@ def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
     :type feed: str
     :param params: optional dictionary with additional parameters specific to the requested data feed
     :type params: dict
+    :param binary: expect binary content from the server
+    :type binary: bool
     :return: FSEconomy Server Response object
     :rtype: Response
     """
@@ -65,9 +67,13 @@ def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
         raise FseServerRequestError
 
     # process data
+    if binary:
+        raw = response.content
+    else:
+        raw = response.text
     return Response(
         status=response.status_code,
-        data=DATA_FEEDS[feed]['decode'](response.text),
+        data=DATA_FEEDS[feed]['decode'](raw),
         raw=response.text,
         ok=True
     )
