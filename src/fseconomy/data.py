@@ -5,7 +5,7 @@ fseconomy.data
 This module contains public functions to access the FSEconomy Data Feeds.
 """
 from .response import Response
-from .core.fetch import fetch
+from .core.fetch import fetch, fetch_file
 
 
 def aircraft_status_by_registration(registration: str) -> Response:
@@ -226,3 +226,17 @@ def fbos_for_sale() -> Response:
     :rtype: Response
     """
     return fetch('fbos for sale')
+
+
+def fse_icao_data() -> Response:
+    """FSE ICAO Data
+
+    :raises FseDataFileInvalidError: in case ``file`` is not a valid data file
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch_file('airports')

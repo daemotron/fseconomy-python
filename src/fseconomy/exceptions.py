@@ -49,6 +49,10 @@ class FseDataFeedParamError(FseBaseException):
     """One or several required parameters are missing to query the requested data feed"""
 
 
+class FseDataFileInvalidError(FseBaseException):
+    """Invalid data file"""
+
+
 class FseDataParseError(FseBaseException):
     """Unable to parse XML data received from the FSEconomy server"""
 

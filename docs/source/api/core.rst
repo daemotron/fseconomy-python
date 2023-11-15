@@ -96,3 +96,9 @@ FBOs
 
 .. autofunction:: fseconomy.core.data.fbo.decode
 .. autofunction:: fseconomy.core.data.fbo.__decode_fbo
+
+Airports
+~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.airport.decode
+.. autofunction:: fseconomy.core.data.airport.__decode_airport

@@ -1,4 +1,5 @@
 from .data import aircraft
+from .data import airport
 from .data import aliases
 from .data import assignment
 from .data import commodity
@@ -12,6 +13,7 @@ from .data import status
 API_VERSIONS = {
     'data': 'https://server.fseconomy.net/data',
     'fse': 'https://server.fseconomy.net/rest/fse/api',
+    'static': 'https://server.fseconomy.net/static/library',
     'v1': 'https://server.fseconomy.net/rest/api',
     'v2': 'https://server.fseconomy.net/rest/api/v2'
 }
@@ -97,5 +99,13 @@ DATA_FEEDS = {
         'query': 'fbos',
         'search': 'forsale',
         'decode': fbo.decode
+    }
+}
+
+
+DATA_FILES = {
+    'airports': {
+        'filename': 'datafeed_icaodata.zip',
+        'decode': airport.decode
     }
 }

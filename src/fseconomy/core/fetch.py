@@ -1,18 +1,19 @@
+import urllib.parse
 from typing import Union, Optional
 
 import requests
 
 from . import keys
-from .api import DATA_FEEDS, MAINTENANCE, API_VERSIONS
+from .api import DATA_FEEDS, MAINTENANCE, API_VERSIONS, DATA_FILES
 from ..response import Response
 from ..exceptions import FseDataFeedInvalidError, FseServerMaintenanceError, FseServerRequestError, \
-    FseDataFeedParamError
+    FseDataFeedParamError, FseDataFileInvalidError
 
 
-def fetch(feed: str, params: Optional[dict] = None, binary: bool = False) -> Union[None, Response]:
+def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
     """Fetch data feed and parse response
 
-    The *feed* parameter needs to represent a data field as defined in the :mod:`~fseconomy.core.api` module.
+    The *feed* parameter needs to represent a data feed as defined in the :mod:`~fseconomy.core.api` module.
 
     If the requested feed requires additional parameters, these need to be provided via the ``params`` dictionary.
 
@@ -26,8 +27,6 @@ def fetch(feed: str, params: Optional[dict] = None, binary: bool = False) -> Uni
     :type feed: str
     :param params: optional dictionary with additional parameters specific to the requested data feed
     :type params: dict
-    :param binary: expect binary content from the server
-    :type binary: bool
     :return: FSEconomy Server Response object
     :rtype: Response
     """
@@ -67,13 +66,53 @@ def fetch(feed: str, params: Optional[dict] = None, binary: bool = False) -> Uni
         raise FseServerRequestError
 
     # process data
-    if binary:
-        raw = response.content
-    else:
-        raw = response.text
     return Response(
         status=response.status_code,
-        data=DATA_FEEDS[feed]['decode'](raw),
-        raw=raw,
+        data=DATA_FEEDS[feed]['decode'](response.text),
+        raw=response.text,
+        ok=True
+    )
+
+
+def fetch_file(file: str = '') -> Union[None, Response]:
+    """Fetch static data and process response
+
+    The *file* parameter needs to represent a data file as defined in the :mod:`~fseconomy.core.api` module.
+
+    :raises FseDataFileInvalidError: in case ``file`` is not a valid data file
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param file: file to be retrieved and parsed
+    :type file: str
+    :return: FSEconomy Server Response object
+    :rtype: Response
+    """
+    # check if feed exists
+    if file not in DATA_FILES:
+        raise FseDataFileInvalidError(message="{} is not a valid FSEconomy Data File".format(file))
+
+    # execute request and check for a good response
+    try:
+        response = requests.get('/'.join([API_VERSIONS['static'], DATA_FILES[file]['filename']]))
+    except requests.exceptions.ConnectionError:
+        raise FseServerRequestError
+
+    # detect possible server maintenance
+    if MAINTENANCE in response.text:
+        raise FseServerMaintenanceError
+
+    # detect other server communication issues
+    try:
+        response.raise_for_status()
+    except requests.exceptions.HTTPError:
+        raise FseServerRequestError
+
+    # process data
+    return Response(
+        status=response.status_code,
+        data=DATA_FILES[file]['decode'](response.content),
+        raw=response.content,
         ok=True
     )

@@ -9,7 +9,7 @@ from ...exceptions import FseDataParseError
 from ...util import xml, time
 
 
-def __decode_aircraft(aircraft: dict[str, str]) -> dict[str, Union[bool, float, str]]:
+def __decode_aircraft(aircraft: dict[str, str]) -> dict[str, Union[bool, float, int, str]]:
     """Private function to decode data representing one single aircraft
 
     :param aircraft: Python dictionary derived from FSEconomy server XML output
