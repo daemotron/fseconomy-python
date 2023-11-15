@@ -1,6 +1,7 @@
 from .data import aircraft
 from .data import aliases
 from .data import assignment
+from .data import commodity
 from .data import config
 from .data import status
 
@@ -74,5 +75,10 @@ DATA_FEEDS = {
         'query': 'assignments',
         'search': 'key',
         'decode': assignment.decode
+    },
+    'commodities by key': {
+        'query': 'commodities',
+        'search': 'key',
+        'decode': commodity.decode
     }
 }

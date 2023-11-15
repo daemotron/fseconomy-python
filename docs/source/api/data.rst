@@ -22,3 +22,8 @@ Assignment Data Feeds
 ---------------------
 
 .. autofunction:: assignments_by_key
+
+Commodity Data Feeds
+--------------------
+
+.. autofunction:: commodities_by_key

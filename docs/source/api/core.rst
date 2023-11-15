@@ -87,3 +87,9 @@ Assignments
 
 .. autofunction:: fseconomy.core.data.assignment.decode
 .. autofunction:: fseconomy.core.data.assignment.__decode_assignment
+
+Commodities
+~~~~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.commodity.decode
+.. autofunction:: fseconomy.core.data.commodity.__decode_commodity
