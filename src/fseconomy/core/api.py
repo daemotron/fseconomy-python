@@ -7,6 +7,7 @@ from .data import config
 from .data import facility
 from .data import fbo
 from .data import status
+from .data import summary
 
 
 #: FSEconomy APIs and versions
@@ -99,6 +100,12 @@ DATA_FEEDS = {
         'query': 'fbos',
         'search': 'forsale',
         'decode': fbo.decode
+    },
+    'fbo monthly summary by icao': {
+        'query': 'fbos',
+        'search': 'monthlysummary',
+        'params': ['month', 'year', 'icao'],
+        'decode': summary.decode
     }
 }
 

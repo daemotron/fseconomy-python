@@ -228,6 +228,26 @@ def fbos_for_sale() -> Response:
     return fetch('fbos for sale')
 
 
+def fbo_monthly_summary_by_icao(month: int, year: int, icao: str) -> Response:
+    """FBO Monthly Summary by ICAO
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param month: the month as numeric value (1 = January, 12 = December)
+    :type month: int
+    :param year: the year as numeric value
+    :type year: int
+    :param icao: the (FSE) ICAO code of the airport or airfield the FBO is at
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('fbo monthly summary by icao', {'month': month, 'year': year, 'icao': icao})
+
+
 def fse_icao_data() -> Response:
     """FSE ICAO Data
 

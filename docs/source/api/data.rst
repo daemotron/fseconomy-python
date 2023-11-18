@@ -34,6 +34,7 @@ FBO Data Feeds
 .. autofunction:: facilities_by_key
 .. autofunction:: fbos_by_key
 .. autofunction:: fbos_for_sale
+.. autofunction:: fbo_monthly_summary_by_icao
 
 Airport Data Feeds
 ------------------
