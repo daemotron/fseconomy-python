@@ -2,7 +2,7 @@
 fseconomy.core.data.fbo
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This module contains data handling functions for the facility data feed.
+This module contains data handling functions for the fbo data feeds.
 """
 from typing import Union
 from ...exceptions import FseDataParseError
