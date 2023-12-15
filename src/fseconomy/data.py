@@ -248,6 +248,146 @@ def fbo_monthly_summary_by_icao(month: int, year: int, icao: str) -> Response:
     return fetch('fbo monthly summary by icao', {'month': month, 'year': year, 'icao': icao})
 
 
+def flight_logs_by_key_month_year(month: int, year: int) -> Response:
+    """Flight Logs By Key Month Year
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param month: the month as numeric value (1 = January, 12 = December)
+    :type month: int
+    :param year: the year as numeric value
+    :type year: int
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by key month year', {'month': month, 'year': year})
+
+
+def flight_logs_by_reg_month_year(month: int, year: int, registration: str) -> Response:
+    """Flight Logs By Reg Month Year
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param month: the month as numeric value (1 = January, 12 = December)
+    :type month: int
+    :param year: the year as numeric value
+    :type year: int
+    :param registration: the aircraft registration as string
+    :type registration: str
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by reg month year', {'month': month, 'year': year, 'aircraftreg': registration})
+
+
+def flight_logs_by_serialnumber_month_year(month: int, year: int, serialnumber: int) -> Response:
+    """Flight Logs By serialnumber Month Year
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param month: the month as numeric value (1 = January, 12 = December)
+    :type month: int
+    :param year: the year as numeric value
+    :type year: int
+    :param serialnumber: the aircraft numeric ID
+    :type serialnumber: int
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by serialnumber month year', {'month': month, 'year': year, 'serialnumber': serialnumber})
+
+
+def flight_logs_by_key_from_id(fromid: int) -> Response:
+    """Flight Logs By Key From Id (Limit 500)
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param fromid: the flight id to start from
+    :type fromid: int
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by key from id', {'fromid': fromid})
+
+
+def flight_logs_by_key_from_id_for_all_group_aircraft(fromid: int) -> Response:
+    """Flight Logs By Key From Id for ALL group aircraft (Limit 500)
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param fromid: the flight id to start from
+    :type fromid: int
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by key from id for all group aircraft', {'fromid': fromid, 'type': 'groupaircraft'})
+
+
+def flight_logs_by_reg_from_id(fromid: int, registration: str) -> Response:
+    """Flight Logs By Reg From Id (Limit 500)
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param fromid: the flight id to start from
+    :type fromid: int
+    :param registration: the aircraft registration as string
+    :type registration: str
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by reg from id', {'fromid': fromid, 'aircraftreg': registration})
+
+
+def flight_logs_by_serialnumber_from_id(fromid: int, serialnumber: int) -> Response:
+    """Flight Logs By serialnumber From Id (Limit 500)
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+
+    :param fromid: the flight id to start from
+    :type fromid: int
+    :param serialnumber: the aircraft numeric ID
+    :type serialnumber: int
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('flight logs by serialnumber from id', {'fromid': fromid, 'serialnumber': serialnumber})
+
+
 def fse_icao_data() -> Response:
     """FSE ICAO Data
 

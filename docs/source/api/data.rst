@@ -36,6 +36,17 @@ FBO Data Feeds
 .. autofunction:: fbos_for_sale
 .. autofunction:: fbo_monthly_summary_by_icao
 
+Flight Log Data Feeds
+---------------------
+
+.. autofunction:: flight_logs_by_key_month_year
+.. autofunction:: flight_logs_by_reg_month_year
+.. autofunction:: flight_logs_by_serialnumber_month_year
+.. autofunction:: flight_logs_by_key_from_id
+.. autofunction:: flight_logs_by_key_from_id_for_all_group_aircraft
+.. autofunction:: flight_logs_by_reg_from_id
+.. autofunction:: flight_logs_by_serialnumber_from_id
+
 Airport Data Feeds
 ------------------
 

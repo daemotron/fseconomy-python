@@ -103,6 +103,12 @@ FBO Summary
 .. autofunction:: fseconomy.core.data.summary.decode
 .. autofunction:: fseconomy.core.data.summary.__decode_summary
 
+Flights
+~~~~~~~
+
+.. autofunction:: fseconomy.core.data.flight.decode
+.. autofunction:: fseconomy.core.data.flight.__decode_flight
+
 Airports
 ~~~~~~~~
 

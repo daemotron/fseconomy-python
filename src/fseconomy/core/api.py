@@ -6,6 +6,7 @@ from .data import commodity
 from .data import config
 from .data import facility
 from .data import fbo
+from .data import flight
 from .data import status
 from .data import summary
 
@@ -106,6 +107,48 @@ DATA_FEEDS = {
         'search': 'monthlysummary',
         'params': ['month', 'year', 'icao'],
         'decode': summary.decode
+    },
+    'flight logs by key month year': {
+        'query': 'flightlogs',
+        'search': 'monthyear',
+        'params': ['month', 'year'],
+        'decode': flight.decode
+    },
+    'flight logs by reg month year': {
+        'query': 'flightlogs',
+        'search': 'monthyear',
+        'params': ['aircraftreg', 'month', 'year'],
+        'decode': flight.decode
+    },
+    'flight logs by serialnumber month year': {
+        'query': 'flightlogs',
+        'search': 'monthyear',
+        'params': ['serialnumber', 'month', 'year'],
+        'decode': flight.decode
+    },
+    'flight logs by key from id': {
+        'query': 'flightlogs',
+        'search': 'id',
+        'params': ['fromid'],
+        'decode': flight.decode
+    },
+    'flight logs by key from id for all group aircraft': {
+        'query': 'flightlogs',
+        'search': 'id',
+        'params': ['fromid', 'type'],
+        'decode': flight.decode
+    },
+    'flight logs by reg from id': {
+        'query': 'flightlogs',
+        'search': 'id',
+        'params': ['fromid', 'aircraftreg'],
+        'decode': flight.decode
+    },
+    'flight logs by serialnumber from id': {
+        'query': 'flightlogs',
+        'search': 'id',
+        'params': ['fromid', 'serialnumber'],
+        'decode': flight.decode
     }
 }
 
