@@ -69,8 +69,7 @@ def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
     return Response(
         status=response.status_code,
         data=DATA_FEEDS[feed]['decode'](response.text),
-        raw=response.text,
-        ok=True
+        raw=response.text
     )
 
 
@@ -113,6 +112,5 @@ def fetch_file(file: str = '') -> Union[None, Response]:
     return Response(
         status=response.status_code,
         data=DATA_FILES[file]['decode'](response.content),
-        raw=response.content,
-        ok=True
+        raw=response.content
     )
