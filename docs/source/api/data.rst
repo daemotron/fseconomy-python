@@ -47,6 +47,11 @@ Flight Log Data Feeds
 .. autofunction:: flight_logs_by_reg_from_id
 .. autofunction:: flight_logs_by_serialnumber_from_id
 
+Group Data Feeds
+----------------
+
+.. autofunction:: group_members
+
 Airport Data Feeds
 ------------------
 

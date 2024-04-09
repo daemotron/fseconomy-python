@@ -109,6 +109,12 @@ Flights
 .. autofunction:: fseconomy.core.data.flight.decode
 .. autofunction:: fseconomy.core.data.flight.__decode_flight
 
+Group Members
+~~~~~~~~~~~~~
+
+.. autofunction:: fseconomy.core.data.member.decode
+.. autofunction:: fseconomy.core.data.member.__decode_member
+
 Airports
 ~~~~~~~~
 

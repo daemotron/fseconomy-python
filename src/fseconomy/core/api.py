@@ -7,6 +7,7 @@ from .data import config
 from .data import facility
 from .data import fbo
 from .data import flight
+from .data import member
 from .data import status
 from .data import summary
 
@@ -149,6 +150,11 @@ DATA_FEEDS = {
         'search': 'id',
         'params': ['fromid', 'serialnumber'],
         'decode': flight.decode
+    },
+    'group members': {
+        'query': 'group',
+        'search': 'members',
+        'decode': member.decode
     }
 }
 

@@ -388,6 +388,22 @@ def flight_logs_by_serialnumber_from_id(fromid: int, serialnumber: int) -> Respo
     return fetch('flight logs by serialnumber from id', {'fromid': fromid, 'serialnumber': serialnumber})
 
 
+def group_members() -> Response:
+    """Group Members
+
+    :raises FseDataFeedInvalidError: in case ``feed`` is not a valid data feed
+    :raises FseDataFeedParamError: in case a required additional parameter is missing
+    :raises FseServerRequestError: in case the communication with the server fails
+    :raises FseServerMaintenanceError: in case the server is in maintenance mode
+    :raises FseDataParseError: in case the data received are malformed or cannot be parsed for other reasons
+    :raises FseDataKeyError: in case of invalid data access key (group key required)
+
+    :return: Response object with data retrieved from the FSEconomy server
+    :rtype: Response
+    """
+    return fetch('group members')
+
+
 def fse_icao_data() -> Response:
     """FSE ICAO Data
 
