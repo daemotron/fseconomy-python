@@ -19,6 +19,13 @@ Hex Utilities
 
 .. autofunction:: is_hex
 
+Time Utilities
+--------------
+
+.. module:: fseconomy.util.time
+
+.. autofunction:: parse_hobbs
+
 XML Utilities
 -------------
 

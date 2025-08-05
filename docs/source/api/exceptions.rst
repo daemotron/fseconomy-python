@@ -10,6 +10,7 @@ Exceptions
 .. autoexception:: FseDataKeyError
 .. autoexception:: FseDataFeedInvalidError
 .. autoexception:: FseDataFeedParamError
+.. autoexception:: FseDataFileInvalidError
 .. autoexception:: FseDataParseError
 .. autoexception:: FseServerMaintenanceError
 .. autoexception:: FseServerRequestError

@@ -1,5 +1,4 @@
-build==1.0.3
-requests==2.31.0
-twine==4.0.2
+requests==2.32.4
 
--r docs/requirements.txt
+-r requirements/dev.txt
+-r requirements/doc.txt

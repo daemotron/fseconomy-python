@@ -5,6 +5,8 @@ fseconomy.exceptions
 This module contains the set of FSEconomy's exceptions.
 """
 
+from typing import Optional
+
 
 class FseBaseException(Exception):
     """Common base class for all fseconomy errors
@@ -13,16 +15,12 @@ class FseBaseException(Exception):
     :type message: str
     """
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        try:
-            message = self.__getattribute__('message')
-            if not message:
-                raise AttributeError
-        except AttributeError:
+    def __init__(self, message: Optional[str] = None):
+        super().__init__()
+        if (message is None) or (message == ""):
             self.message = self.__doc__
-        if not self.message:
-            self.message = self.__doc__
+        else:
+            self.message = str(message)
 
     def __str__(self):
         return self.message
@@ -33,27 +31,26 @@ class FseBaseException(Exception):
 
 class FseError(FseBaseException):
     """There was an ambiguous exception while accessing the FSEconomy API"""
-    pass
 
 
 class FseAuthKeyError(FseBaseException):
     """Could not find a valid authentication key (user or service key)"""
-    pass
 
 
 class FseDataKeyError(FseBaseException):
     """Could not find a valid data access key (user or access key)"""
-    pass
 
 
 class FseDataFeedInvalidError(FseBaseException):
     """Invalid data feed"""
-    pass
 
 
 class FseDataFeedParamError(FseBaseException):
     """One or several required parameters are missing to query the requested data feed"""
-    pass
+
+
+class FseDataFileInvalidError(FseBaseException):
+    """Invalid data file"""
 
 
 class FseDataParseError(FseBaseException):
@@ -62,9 +59,7 @@ class FseDataParseError(FseBaseException):
 
 class FseServerMaintenanceError(FseBaseException):
     """The FSEconomy server is currently down for maintenance"""
-    pass
 
 
 class FseServerRequestError(FseBaseException):
     """Request to the FSEconomy server failed"""
-    pass

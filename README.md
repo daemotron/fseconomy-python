@@ -31,6 +31,26 @@ for an explanation of the different keys and their purpose.
 
 ### FSEconomy Data Feeds
 
+Retrieve data from FSEconomy's data feed API. For most feeds, you must set a valid key first.
+
+```python
+import fseconomy
+import fseconomy.data
+
+fseconomy.set_access_key('0123456789ABCDEF')
+fseconomy.set_service_key('0123456789ABCDEF')
+fseconomy.set_user_key('0123456789ABCDEF')
+
+data_feed = fseconomy.data.aircraft_configs()
+print(data_feed.status) # HTTP response status code
+print(data_feed.data)   # parsed into native python data types
+print(data_feed.binary) # true if raw data is binary data
+print(data_feed.raw)    # raw data as received from the server
+```
+
+A comprehensive list of all data feeds can be found in the
+[official documentation](https://fseconomy-python.readthedocs.io/en/latest/)
+
 ### FSEconomy REST API
 
 ### FSEconomy Auth API
