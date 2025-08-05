@@ -37,7 +37,7 @@ def decode(raw_data: bytes) -> list[dict[str, Union[int, float, str]]]:
 
     :raises FseDataParseError: in case of malformed data provided
 
-    :param raw_data: string with raw byte data representing a zipfile containing airport data as csv file
+    :param raw_data: string with raw byte data representing airport data as csv file
     :type raw_data: bytes
     :return: list of dictionaries representing each an airport from the data feed
     :rtype: list[dict]
@@ -47,12 +47,11 @@ def decode(raw_data: bytes) -> list[dict[str, Union[int, float, str]]]:
 
     result = []
     try:
-        with zipfile.ZipFile(io.BytesIO(raw_data), 'r') as zfp:
-            with zfp.open('icaodata.csv') as ifp:
-                reader = csv.DictReader(io.TextIOWrapper(ifp))
-                for row in reader:
-                    result.append(__decode_airport(row))
-    except (KeyError, IndexError, csv.Error, zipfile.BadZipFile) as e:
+        with io.BytesIO(raw_data) as df:
+            reader = csv.DictReader(io.TextIOWrapper(df, encoding='iso-8859-1'))
+            for row in reader:
+                result.append(__decode_airport(row))
+    except (KeyError, IndexError, csv.Error) as e:
         raise FseDataParseError(e)
 
     return result

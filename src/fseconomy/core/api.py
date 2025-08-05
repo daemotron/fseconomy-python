@@ -16,7 +16,7 @@ from .data import summary
 API_VERSIONS = {
     'data': 'https://server.fseconomy.net/data',
     'fse': 'https://server.fseconomy.net/rest/fse/api',
-    'static': 'https://server.fseconomy.net/static/library',
+    'static': 'https://server.fseconomy.net/static',
     'v1': 'https://server.fseconomy.net/rest/api',
     'v2': 'https://server.fseconomy.net/rest/api/v2'
 }
@@ -161,7 +161,7 @@ DATA_FEEDS = {
 
 DATA_FILES = {
     'airports': {
-        'filename': 'datafeed_icaodata.zip',
+        'filename': 'airports.csv',
         'decode': airport.decode
     }
 }
