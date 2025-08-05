@@ -52,6 +52,7 @@ def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
     # execute request and check for a good response
     try:
         response = requests.get(API_VERSIONS['data'], params=payload)
+        response.encoding = 'iso-8859-1'
     except requests.exceptions.ConnectionError:
         raise FseServerRequestError
 
