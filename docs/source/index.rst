@@ -10,6 +10,7 @@ FSEconomy for Python
    :maxdepth: 2
    :caption: Contents:
 
+   guide/index
    api/index
 
 
