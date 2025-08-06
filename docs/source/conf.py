@@ -13,9 +13,9 @@ sys.path.insert(0, os.path.abspath('../../src'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'FSEconomy for Python'
-copyright = '2023, Jesco "daemotron" Freund'
+copyright = '2023–2025, Jesco "daemotron" Freund'
 author = 'Jesco "daemotron" Freund'
-release = '0.1'
+release = '0.1.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

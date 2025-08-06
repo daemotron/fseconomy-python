@@ -1,6 +1,6 @@
 [project]
 name = "fseconomy-python"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Daemotron" },
 ]
@@ -13,6 +13,9 @@ classifiers = [
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "requests>=2.31.0"
+]
 
 [project.urls]
 Homepage = "https://github.com/fseconomy/fseconomy-python"
