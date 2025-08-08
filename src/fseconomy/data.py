@@ -365,7 +365,7 @@ def flight_logs_by_reg_from_id(fromid: int, registration: str) -> Response:
     :return: Response object with data retrieved from the FSEconomy server
     :rtype: Response
     """
-    return fetch('flight logs by reg from id', {'fromid': fromid, 'aircraftreg': registration})
+    return fetch('flight logs by reg from id', {'aircraftreg': registration, 'fromid': fromid})
 
 
 def flight_logs_by_serialnumber_from_id(fromid: int, serialnumber: int) -> Response:
