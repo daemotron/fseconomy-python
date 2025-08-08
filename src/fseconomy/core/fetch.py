@@ -1,4 +1,3 @@
-import urllib.parse
 from typing import Union, Optional
 
 import requests
@@ -48,6 +47,9 @@ def fetch(feed: str, params: Optional[dict] = None) -> Union[None, Response]:
     payload = {'format': 'xml', 'query': DATA_FEEDS[feed]['query'], 'search': DATA_FEEDS[feed]['search']}
     payload.update(params)
     payload.update(keys.get_data_keys())
+
+    if 'rakey' not in DATA_FEEDS[feed] or not DATA_FEEDS[feed]['rakey']:
+        del payload['readaccesskey']
 
     # execute request and check for a good response
     try:
